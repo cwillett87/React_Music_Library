@@ -1,6 +1,8 @@
 import React from 'react';
+import Delete from '../Delete/delete';
 
 function MusicTable(props){
+    console.log(props);
     if(props.songs === undefined){
         return (
             <div></div>
@@ -15,6 +17,7 @@ function MusicTable(props){
                 <td>{song.genre}</td>
                 <td>{song.release_date}</td>
                 <td>{song.likes}</td>
+                <Delete songid={song.id} deleteSongs={props.deleteSongs} />
             </tr>
         })
         return (
