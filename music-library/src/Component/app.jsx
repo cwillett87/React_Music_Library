@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import MusicTable from './MusicTable/musicTable';
 import axios from 'axios';
+import CreateSong from './CreateSong/createSong';
 
 class App extends Component {
     constructor(props){
@@ -24,15 +25,38 @@ class App extends Component {
         console.log(this.props)
         await axios.delete(`http://127.0.0.1:8000/music/${id}/`)
         let response = await this.getAllSongs()
-        this.setState({
-            songs: response.data
-        });
+        if(response === undefined){
+            this.setState({
+
+            });
+        }
+        else{
+            this.setState({
+                songs: response.data
+            });
+        }
+    }
+
+    addSong = async (song) => {
+        await axios.post('http://127.0.0.1:8000/music/',song)
+        let response = await this.getAllSongs()
+        if(response === undefined){
+            this.setState({
+
+            });
+        }
+        else{
+            this.setState({
+                songs: response.data
+            });
+        }
     }
 
     render() {
         return (
             <div>
                 <MusicTable songs={this.state.songs} deleteSongs={this.deleteSong}/>
+                <CreateSong addSong={this.addSong.bind(this)}/>
             </div>
         );
     }
