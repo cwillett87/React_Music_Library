@@ -50,31 +50,33 @@ class CreateSong extends Component {
                 </center>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label>Title:</label>
+                        <label>Title:  </label>
                         <input type='text' name='title' onChange={this.handleChange} value={this.state.title}/>
                     </div>
                     <div>
-                        <label>Artist:</label>
+                        <label>Artist:  </label>
                         <input type='text' name='artist' onChange={this.handleChange} value={this.state.artist}/>
                     </div>
                     <div>
-                        <label>Album:</label>
+                        <label>Album:  </label>
                         <input type='text' name='album' onChange={this.handleChange} value={this.state.album}/>
                     </div>
                     <div>
-                        <label>Release Date:</label>
+                        <label>Release Date:  </label>
                         <input type='text' name='release_date' onChange={this.handleChange} value={this.state.release_date}/>
                     </div>
                     <div>
-                        <label>Likes:</label>
+                        <label>Likes:  </label>
                         <input type='text' name='likes' onChange={this.handleChange} value={this.state.likes}/>
                     </div>
                     <div>
-                        <label>Genre:</label>
+                        <label>Genre:  </label>
                         <input type='text' name='genre' onChange={this.handleChange} value={this.state.genre}/>
+                        <br/>
                     </div>
                     <div>
-                        <input type='submit' value='Create'/>
+                        <br/>
+                        <input type='submit' value='Submit'/>
                     </div>
                 </form>
             </div>

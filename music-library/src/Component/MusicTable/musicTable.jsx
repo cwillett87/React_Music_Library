@@ -22,8 +22,10 @@ function MusicTable(props){
         })
         return (
             <div>
+                <center>
+                <h1>Music Library</h1>
+                </center>
                 <table>
-                    <h1>Music Library</h1>
                     <tr>
                         <th>Title</th>
                         <th>Album</th>
@@ -32,7 +34,9 @@ function MusicTable(props){
                         <th>Release Date</th>
                         <th>Likes</th>
                     </tr>
+                    <tbody>
                     {musicList}
+                    </tbody>
                 </table>
             </div>
         );

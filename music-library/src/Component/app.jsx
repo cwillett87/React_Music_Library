@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import MusicTable from './MusicTable/musicTable';
 import axios from 'axios';
 import CreateSong from './CreateSong/createSong';
+import SearchBar from './SearchBar/searchBar';
 
 class App extends Component {
     constructor(props){
@@ -55,8 +56,11 @@ class App extends Component {
     render() {
         return (
             <div>
-                <MusicTable songs={this.state.songs} deleteSongs={this.deleteSong}/>
-                <CreateSong addSong={this.addSong.bind(this)}/>
+                <center>
+                    <MusicTable songs={this.state.songs} deleteSongs={this.deleteSong}/>
+                    <SearchBar songs={this.state.songs}/>
+                    <CreateSong addSong={this.addSong.bind(this)}/>
+                </center>
             </div>
         );
     }
