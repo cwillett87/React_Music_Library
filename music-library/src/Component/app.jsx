@@ -61,13 +61,29 @@ class App extends Component {
         }
     }
 
+    likeSong = async (id, title) => {
+        console.log(this.props)
+        await axios.patch(`http://127.0.0.1:8000/music/${id}/${title}/`)
+        let response = await this.getAllSongs()
+        if(response === undefined){
+            this.setState({
+
+            });
+        }
+        else{
+            this.setState({
+                songs: response.data
+            });
+        }
+    }
+
     render() {
         return (
             <div>
                 <center>
                     <br/>
                     <SearchBar songs={this.state.songs} filterSongs={this.filterSongs}/>
-                    <MusicTable songs={this.state.currentSongs} deleteSongs={this.deleteSong}/>
+                    <MusicTable songs={this.state.currentSongs} deleteSongs={this.deleteSong} likeSong={this.likeSong}/>
                     <CreateSong addSong={this.addSong.bind(this)}/>
                 </center>
             </div>

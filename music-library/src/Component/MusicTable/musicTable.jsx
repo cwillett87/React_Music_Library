@@ -1,6 +1,6 @@
 import React from 'react';
 import Delete from '../Delete/delete';
-import SearchBar from '../SearchBar/searchBar';
+import Like from '../LikeButton/likeButton';
 
 function MusicTable(props){
     console.log(props);
@@ -18,6 +18,7 @@ function MusicTable(props){
                 <td>{song.genre}</td>
                 <td>{song.release_date}</td>
                 <td>{song.likes}</td>
+                <Like songid={song.id} songtitle={song.title} likeSong={props.likeSong}/>
                 <Delete songid={song.id} deleteSongs={props.deleteSongs} />
             </tr>
         })
