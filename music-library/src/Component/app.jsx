@@ -8,7 +8,8 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = { 
-            songs: []
+            songs: [],
+            currentSongs: []
         }
     }
     componentDidMount(){
@@ -18,8 +19,15 @@ class App extends Component {
     async getAllSongs(){
         let response = await axios.get('http://127.0.0.1:8000/music/');
         this.setState({
-            songs: response.data
+            songs: response.data,
+            currentSongs : response.data
         });
+    }
+
+    filterSongs=(songsToDisplay)=>{
+        this.setState({
+            currentSongs : songsToDisplay
+        })
     }
 
     deleteSong = async (id) => {
@@ -57,8 +65,9 @@ class App extends Component {
         return (
             <div>
                 <center>
-                    <MusicTable songs={this.state.songs} deleteSongs={this.deleteSong}/>
-                    <SearchBar songs={this.state.songs}/>
+                    <br/>
+                    <SearchBar songs={this.state.songs} filterSongs={this.filterSongs}/>
+                    <MusicTable songs={this.state.currentSongs} deleteSongs={this.deleteSong}/>
                     <CreateSong addSong={this.addSong.bind(this)}/>
                 </center>
             </div>

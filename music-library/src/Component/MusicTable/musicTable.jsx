@@ -1,5 +1,6 @@
 import React from 'react';
 import Delete from '../Delete/delete';
+import SearchBar from '../SearchBar/searchBar';
 
 function MusicTable(props){
     console.log(props);
@@ -25,6 +26,7 @@ function MusicTable(props){
                 <center>
                 <h1>Music Library</h1>
                 </center>
+                
                 <table>
                     <tr>
                         <th>Title</th>
@@ -38,6 +40,7 @@ function MusicTable(props){
                     {musicList}
                     </tbody>
                 </table>
+                
             </div>
         );
     }

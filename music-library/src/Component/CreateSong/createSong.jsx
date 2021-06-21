@@ -45,9 +45,9 @@ class CreateSong extends Component {
         return (
             <div>
                 <hr/>
-                <center>
+  
                     <h3>Add a Song</h3>
-                </center>
+     
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Title:  </label>
