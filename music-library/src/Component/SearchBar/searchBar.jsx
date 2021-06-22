@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './searchBar.css';
 
 class SearchBar extends Component {
     constructor(props){
@@ -25,7 +26,7 @@ class SearchBar extends Component {
 
     render() {
             return(
-                <div>
+                <div className='search'>
                     <label>Search:  </label>
                     <input type='text' value={this.state.filter} onChange={this.handleChange}/>
                 </div>
