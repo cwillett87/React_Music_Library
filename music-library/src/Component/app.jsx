@@ -3,6 +3,7 @@ import MusicTable from './MusicTable/musicTable';
 import axios from 'axios';
 import CreateSong from './CreateSong/createSong';
 import SearchBar from './SearchBar/searchBar';
+import './app.css';
 
 class App extends Component {
     constructor(props){
@@ -80,12 +81,17 @@ class App extends Component {
     render() {
         return (
             <div>
-                <center>
+                <div className='background'>
+                    <center>
                     <br/>
                     <SearchBar songs={this.state.songs} filterSongs={this.filterSongs}/>
+                    <br/>
                     <MusicTable songs={this.state.currentSongs} deleteSongs={this.deleteSong} likeSong={this.likeSong}/>
+                    
                     <CreateSong addSong={this.addSong.bind(this)}/>
-                </center>
+                    <br/>
+                    </center>
+                </div>
             </div>
         );
     }

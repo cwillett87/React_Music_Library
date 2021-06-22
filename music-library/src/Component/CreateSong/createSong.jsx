@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './createSong.css';
 
 class CreateSong extends Component {
     constructor(props){
@@ -43,12 +43,10 @@ class CreateSong extends Component {
 
     render() {
         return (
-            <div>
-                <hr/>
-  
-                    <h3>Add a Song</h3>
-     
+            <div className='form-box'>
                 <form onSubmit={this.handleSubmit}>
+                <h3>Add a Song</h3>
+                <br/>
                     <div>
                         <label>Title:  </label>
                         <input type='text' name='title' onChange={this.handleChange} value={this.state.title}/>

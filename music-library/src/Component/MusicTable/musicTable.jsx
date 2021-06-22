@@ -1,6 +1,7 @@
 import React from 'react';
 import Delete from '../Delete/delete';
 import Like from '../LikeButton/likeButton';
+import './musicTable.css';
 
 function MusicTable(props){
     console.log(props);
@@ -18,16 +19,13 @@ function MusicTable(props){
                 <td>{song.genre}</td>
                 <td>{song.release_date}</td>
                 <td>{song.likes}</td>
-                <Like songid={song.id} songtitle={song.title} likeSong={props.likeSong}/>
-                <Delete songid={song.id} deleteSongs={props.deleteSongs} />
+                <td><Like songid={song.id} songtitle={song.title} likeSong={props.likeSong}/></td>
+                <td><Delete songid={song.id} deleteSongs={props.deleteSongs} /></td>
             </tr>
         })
         return (
-            <div>
-                <center>
+            <div className='table'>
                 <h1>Music Library</h1>
-                </center>
-                
                 <table>
                     <tr>
                         <th>Title</th>
@@ -36,6 +34,8 @@ function MusicTable(props){
                         <th>Genre</th>
                         <th>Release Date</th>
                         <th>Likes</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     <tbody>
                     {musicList}
